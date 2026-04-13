@@ -202,20 +202,135 @@ def inject_custom_css():
     }
 
     [data-testid="stPlotlyChart"],
-    [data-testid="stDataFrame"],
-    div[data-testid="stFileUploader"],
-    div[data-baseweb="select"],
-    [data-testid="stExpander"] {
-        background: rgba(10, 18, 32, 0.68);
-        border: 1px solid rgba(148, 163, 184, 0.12);
-        border-radius: 22px;
-        box-shadow: 0 10px 28px rgba(2, 6, 23, 0.18);
-    }
+[data-testid="stDataFrame"],
+div[data-testid="stFileUploader"],
+[data-testid="stExpander"] {
+    background: rgba(10, 18, 32, 0.68);
+    border: 1px solid rgba(148, 163, 184, 0.12);
+    border-radius: 22px;
+    box-shadow: 0 10px 28px rgba(2, 6, 23, 0.18);
+}
 
-    div[data-testid="stFileUploader"] {
-        padding: 0.5rem 0.65rem 0.3rem 0.65rem;
-    }
+/* ===== Selectbox / Multiselect 外层 ===== */
+div[data-baseweb="select"] {
+    background: transparent !important;
+    border-radius: 18px !important;
+}
 
+/* ===== 真正可见的输入框区域 ===== */
+div[data-baseweb="select"] > div,
+div[data-baseweb="base-input"] > div {
+    background: rgba(11, 22, 40, 0.92) !important;
+    border: 1px solid rgba(125, 211, 252, 0.16) !important;
+    border-radius: 18px !important;
+    min-height: 54px !important;
+    box-shadow: 0 8px 20px rgba(2, 8, 23, 0.18) !important;
+    color: #e8f3ff !important;
+}
+
+/* ===== hover / focus 状态 ===== */
+div[data-baseweb="select"] > div:hover,
+div[data-baseweb="base-input"] > div:hover {
+    border-color: rgba(125, 211, 252, 0.28) !important;
+    background: rgba(13, 25, 45, 0.96) !important;
+}
+
+div[data-baseweb="select"] > div:focus-within,
+div[data-baseweb="base-input"] > div:focus-within {
+    border-color: rgba(94, 234, 212, 0.5) !important;
+    box-shadow: 0 0 0 1px rgba(94, 234, 212, 0.18), 0 10px 28px rgba(2, 8, 23, 0.22) !important;
+    background: rgba(13, 25, 45, 0.98) !important;
+}
+
+/* ===== 输入文字 / 已选文字 / placeholder ===== */
+div[data-baseweb="select"] input,
+div[data-baseweb="select"] span,
+div[data-baseweb="select"] div,
+div[data-baseweb="base-input"] input,
+div[data-baseweb="base-input"] span,
+div[data-baseweb="base-input"] div {
+    color: #e8f3ff !important;
+    -webkit-text-fill-color: #e8f3ff !important;
+}
+
+div[data-baseweb="select"] input::placeholder,
+div[data-baseweb="base-input"] input::placeholder {
+    color: #8ea6c1 !important;
+    opacity: 1 !important;
+}
+
+/* ===== 下拉箭头 ===== */
+div[data-baseweb="select"] svg {
+    fill: #b9d7f2 !important;
+}
+
+/* ===== 下拉菜单弹层 ===== */
+div[data-baseweb="popover"] {
+    background: transparent !important;
+}
+
+div[data-baseweb="popover"] ul,
+div[data-baseweb="popover"] [role="listbox"] {
+    background: rgba(10, 18, 32, 0.98) !important;
+    border: 1px solid rgba(125, 211, 252, 0.14) !important;
+    border-radius: 16px !important;
+    box-shadow: 0 18px 40px rgba(2, 8, 23, 0.35) !important;
+    padding: 6px !important;
+}
+
+div[data-baseweb="popover"] li,
+div[data-baseweb="popover"] [role="option"] {
+    color: #e8f3ff !important;
+    background: transparent !important;
+    border-radius: 12px !important;
+}
+
+div[data-baseweb="popover"] li:hover,
+div[data-baseweb="popover"] [role="option"]:hover {
+    background: rgba(96, 165, 250, 0.10) !important;
+}
+
+div[data-baseweb="popover"] [aria-selected="true"] {
+    background: rgba(94, 234, 212, 0.12) !important;
+    color: #f4fbff !important;
+}
+
+/* ===== 上传区域 ===== */
+div[data-testid="stFileUploader"] {
+    background: rgba(10, 18, 32, 0.72) !important;
+    border: 1px solid rgba(148, 163, 184, 0.12) !important;
+    border-radius: 22px !important;
+    padding: 0.6rem 0.75rem 0.45rem 0.75rem !important;
+}
+
+[data-testid="stFileUploaderDropzone"] {
+    background: rgba(11, 22, 40, 0.92) !important;
+    border: 1px dashed rgba(125, 211, 252, 0.22) !important;
+    border-radius: 18px !important;
+}
+
+[data-testid="stFileUploaderDropzone"]:hover {
+    background: rgba(13, 25, 45, 0.96) !important;
+    border-color: rgba(94, 234, 212, 0.36) !important;
+}
+
+[data-testid="stFileUploaderDropzone"] * {
+    color: #dbeafe !important;
+}
+
+/* ===== slider 颜色也顺手统一一下 ===== */
+[data-baseweb="slider"] > div > div {
+    background: rgba(148, 163, 184, 0.18) !important;
+}
+
+[data-baseweb="slider"] [role="slider"] {
+    background: #5eead4 !important;
+    border-color: #5eead4 !important;
+}
+
+[data-baseweb="slider"] div[aria-valuenow] + div {
+    background: linear-gradient(90deg, #60a5fa, #5eead4) !important;
+}
     .stButton > button, .stDownloadButton > button {
         border-radius: 999px;
         border: 1px solid rgba(94, 234, 212, 0.24);
